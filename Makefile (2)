@@ -1,0 +1,23 @@
+.PHONY : clean test1 test2
+all : supermercato direttore
+supermercato: supermercato1.c
+	gcc -Wall -g -pedantic ./supermercato1.c -lpthread -o supermercato 
+	          
+direttore: direttore.c
+	gcc -Wall -g -pedantic ./direttore.c -lpthread -o direttore  
+	
+test1:
+	./supermercato testfile/config1.txt & echo $$! > supermercato.PID;	
+	sleep 15;	\
+	kill -3 `cat direttore.PID`;
+	chmod +x analisi.sh
+	./analisi.sh $$(cat supermercato.PID);
+test2:
+	./supermercato testfile/config1.txt & echo $$! > supermercato.PID;	
+	sleep 25;	\
+	kill -1 `cat direttore.PID`;
+	chmod +x analisi.sh
+	./analisi.sh $$(cat supermercato.PID);	
+clean:                
+	rm -f supermercato statsfile.log direttore
+

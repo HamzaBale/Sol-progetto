@@ -1,0 +1,10 @@
+K=6
+C=75
+E=3
+T=200
+P=100
+S=20
+S1=2
+S2=10
+directornews=3000
+ncheckop=3
