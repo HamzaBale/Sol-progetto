@@ -10,7 +10,7 @@ Make test2 -> To run the test2
 
 Make clean -> To clean the directory
 
-To modify config parameters -> Modify the ./testfile/config.txt
+To modify config parameters -> Modify the ./testfile/config1.txt
 
 config parameters:
 
