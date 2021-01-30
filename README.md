@@ -3,12 +3,17 @@ Implementation of a supermarket system for the course "operative system and labo
 How to use the program:
 
 Make -> To build the .c files
+
 Make test1 -> To run the test1
+
 Make test2 -> To run the test2
+
 Make clean -> To clean the directory
+
 To modify config parameters -> Modify the ./testfile/config.txt
 
 config parameters:
+
 K -> Number of supermarket checkouts
 
 C -> Number of max customers in the supermarket initially
