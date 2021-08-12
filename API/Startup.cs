@@ -36,6 +36,7 @@ namespace API
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
             services.AddControllers();
+            services.AddCors(); //evita di essere bloccato dal Cors
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -55,6 +56,9 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyHeader().WithOrigins("http://localhost:4200"));
+            //sto dicendo all'api di accettare tutte le richiesta dall'indirizzo "localhost:4200" e di rifiuteare le altre
 
             app.UseAuthorization();
 
